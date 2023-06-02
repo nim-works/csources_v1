@@ -178,14 +178,12 @@ __AVR__
 #  define N_STDCALL(rettype, name) rettype __stdcall name
 #  define N_SYSCALL(rettype, name) rettype __syscall name
 #  define N_FASTCALL(rettype, name) rettype __fastcall name
-#  define N_THISCALL(rettype, name) rettype __thiscall name
 #  define N_SAFECALL(rettype, name) rettype __stdcall name
 /* function pointers with calling convention: */
 #  define N_CDECL_PTR(rettype, name) rettype (__cdecl *name)
 #  define N_STDCALL_PTR(rettype, name) rettype (__stdcall *name)
 #  define N_SYSCALL_PTR(rettype, name) rettype (__syscall *name)
 #  define N_FASTCALL_PTR(rettype, name) rettype (__fastcall *name)
-#  define N_THISCALL_PTR(rettype, name) rettype (__thiscall *name)
 #  define N_SAFECALL_PTR(rettype, name) rettype (__stdcall *name)
 
 #  ifdef __cplusplus
@@ -449,12 +447,7 @@ typedef NU8 NU;
 #  endif
 #endif
 
-// for now there isn't an easy way for C code to reach the program result
-// when hot code reloading is ON - users will have to:
-// load the nimhcr.dll, get the hcrGetGlobal proc from there and use it
-#ifndef NIM_HOT_CODE_RELOADING
 extern NI nim_program_result;
-#endif
 
 typedef float NF32;
 typedef double NF64;
